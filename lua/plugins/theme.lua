@@ -1,23 +1,10 @@
 return {
-  -- remove mini,indentscope animation
+  -- remove mini.indentscope animation
   {
     "echasnovski/mini.indentscope",
     opts = {
       draw = { animation = require("mini.indentscope").gen_animation.none() },
     },
-  },
-
-  -- additional syntax highlight
-  {
-    "nvim-treesitter/nvim-treesitter",
-    opts = {
-      ensure_installed = {
-        "hyprlang",
-      },
-    },
-    vim.filetype.add({
-      pattern = { [".*/hypr.*%.conf"] = "hyprlang" },
-    }),
   },
 
   -- material theme
@@ -73,7 +60,7 @@ return {
         end, -- If you want to override the default colors, set this to a function
 
         custom_highlights = {
-          MiniIndentscopeSymbol = { fg = colors.main.blue },
+          MiniIndentscopeSymbol = { fg = colors.main.blue }, -- set indentscope color to blue
         }, -- Overwrite highlights with your own
       })
     end,
