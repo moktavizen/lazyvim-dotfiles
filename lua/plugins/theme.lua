@@ -55,7 +55,8 @@ return {
         },
 
         custom_colors = function(colors)
-          colors.editor.accent = colors.main.blue -- changing accent to blue
+          colors.editor.cursor = colors.main.blue -- set cursor caret to blue
+          colors.editor.accent = colors.main.blue -- set accent to blue
           colors.editor.contrast = colors.editor.bg -- removing LazyVim top darker bar
         end, -- If you want to override the default colors, set this to a function
 
