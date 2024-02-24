@@ -1,19 +1,12 @@
 return {
-  -- remove mini.indentscope animation
-  {
-    "echasnovski/mini.indentscope",
-    opts = {
-      draw = { animation = require("mini.indentscope").gen_animation.none() },
-    },
-  },
-
   -- material theme
   {
     "marko-cerovac/material.nvim",
+    lazy = true,
     config = function()
+      vim.g.material_style = "darker"
       local colors = require("material.colors")
       require("material").setup({
-
         contrast = {
           terminal = true, -- Enable contrast for the built-in terminal
           sidebars = true, -- Enable contrast for sidebar-like windows ( for example Nvim-Tree )
@@ -22,7 +15,6 @@ return {
           non_current_windows = false, -- Enable contrasted background for non-current windows
           filetypes = {}, -- Specify which filetypes get the contrasted (darker) background
         },
-
         plugins = { -- Uncomment the plugins that you use to highlight them
           -- Available plugins:
           "dap",
@@ -53,25 +45,23 @@ return {
           "which-key",
           "nvim-notify",
         },
-
+        -- If you want to override the default colors, set this to a function
         custom_colors = function(colors)
           colors.editor.cursor = colors.main.blue -- set cursor caret to blue
           colors.editor.accent = colors.main.blue -- set accent to blue
           colors.editor.contrast = colors.editor.bg -- removing LazyVim top darker bar
-        end, -- If you want to override the default colors, set this to a function
-
+        end,
         custom_highlights = {
           MiniIndentscopeSymbol = { fg = colors.main.blue }, -- set indentscope color to blue
-        }, -- Overwrite highlights with your own
+        },
       })
     end,
   },
-
   -- Configure LazyVim to load material theme
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "material-darker",
+      colorscheme = "material",
     },
   },
 }
