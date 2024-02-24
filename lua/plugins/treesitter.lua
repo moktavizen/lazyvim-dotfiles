@@ -3,6 +3,7 @@ return {
   opts = {
     ensure_installed = {
       "hyprlang",
+      "css",
     },
   },
   vim.filetype.add({ -- add hyprlang filetype
