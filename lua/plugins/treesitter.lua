@@ -1,14 +1,12 @@
 return {
   "nvim-treesitter/nvim-treesitter",
-  opts = function(_, opts)
-    if type(opts.ensure_installed) == "table" then
-      vim.list_extend(opts.ensure_installed, {
-        "hyprlang",
-        "css",
-      })
-    end
-  end,
-  -- add hyprlang filetype
+  opts = {
+    ensure_installed = {
+      "hyprlang",
+      "css",
+    },
+  },
+  -- add hyprlang file detection
   vim.filetype.add({
     pattern = { [".*/hypr.*%.conf"] = "hyprlang" },
   }),
